@@ -11,7 +11,7 @@ class RegisterHeader extends StatelessWidget {
         Icon(Icons.person, size: 80),
         SizedBox(height: 10),
         Text(
-          'Create Account',
+          AppConstants.createAccountTitle,
           textAlign: TextAlign.center,
           style: context.textTheme.displayLarge?.copyWith(
             color: AppColors.primaryColor,

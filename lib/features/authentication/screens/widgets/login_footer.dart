@@ -8,14 +8,14 @@ class LoginFooter extends StatelessWidget {
     return Center(
       child: RichText(
         text: TextSpan(
-          text: "Don't have an account? ",
+          text: AppConstants.dontHaveAccountText,
           style: context.textTheme.bodyMedium?.copyWith(color: AppColors.black),
           children: [
             WidgetSpan(
               child: GestureDetector(
                 onTap: () => context.pushNamed(Routes.registerScreen),
                 child: Text(
-                  'SIGN UP',
+                  AppConstants.signUpButton,
                   style: context.textTheme.bodyMedium?.copyWith(
                     color: AppColors.primaryColor,
                     fontWeight: FontWeight.w600,

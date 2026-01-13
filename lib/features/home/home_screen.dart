@@ -9,9 +9,9 @@ class HomeScreen extends ConsumerWidget {
 
     if (context.mounted) {
       Navigator.of(context).pushReplacementNamed(Routes.loginScreen);
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text('Logged out successfully')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text(AppConstants.logoutSuccessMessage)),
+      );
     }
   }
 
@@ -22,12 +22,12 @@ class HomeScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
+        title: const Text(AppConstants.homeTitle),
         actions: [
           IconButton(
             icon: const Icon(Icons.logout, color: AppColors.white),
             onPressed: () => _handleLogout(context, ref),
-            tooltip: 'Logout',
+            tooltip: AppConstants.logoutTooltip,
           ),
         ],
       ),
@@ -35,7 +35,7 @@ class HomeScreen extends ConsumerWidget {
         child: Padding(
           padding: const EdgeInsets.all(24.0),
           child: user == null
-              ? const Center(child: Text('No user information available'))
+              ? const Center(child: Text(AppConstants.noUserInfoMessage))
               : UserCard(user: user),
         ),
       ),

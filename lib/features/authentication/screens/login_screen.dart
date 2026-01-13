@@ -28,15 +28,15 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       );
 
       if (success && mounted) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text('Login successful!')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(AppConstants.loginSuccessMessage)),
+        );
         Navigator.of(context).pushReplacementNamed(Routes.homeScreen);
       } else if (mounted) {
         final error = ref.read(authControllerProvider).error;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(error ?? 'Login failed'),
+            content: Text(error ?? AppConstants.loginFailedMessage),
             backgroundColor: Colors.red,
           ),
         );
@@ -63,40 +63,40 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       CustomTextField(
-                        label: 'Email Address',
-                        hintText: 'Email Address',
+                        label: AppConstants.emailLabel,
+                        hintText: AppConstants.emailHint,
                         controller: _emailController,
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter your email';
+                            return AppConstants.emailEmptyError;
                           }
                           if (!value.emailValidation) {
-                            return 'Please enter a valid email';
+                            return AppConstants.emailInvalidError;
                           }
                           return null;
                         },
                       ),
                       SizedBox(height: 24),
                       CustomTextField(
-                        label: 'Password',
-                        hintText: 'Password',
+                        label: AppConstants.passwordLabel,
+                        hintText: AppConstants.passwordHint,
                         controller: _passwordController,
                         obscureText: true,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter your password';
+                            return AppConstants.passwordEmptyError;
                           }
 
                           if (value.length < 8) {
-                            return 'Password must be at least 8 characters long';
+                            return AppConstants.passwordLengthError;
                           }
                           return null;
                         },
                       ),
                       SizedBox(height: 24),
                       CustomButton(
-                        text: 'LOGIN',
+                        text: AppConstants.loginButton,
                         onPressed: authState.isLoading ? null : _handleLogin,
                       ),
                       if (authState.isLoading)

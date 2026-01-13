@@ -14,7 +14,7 @@ class LoginHeader extends StatelessWidget {
         ),
 
         Text(
-          'Authenticator',
+          AppConstants.appName,
           style: context.textTheme.displayLarge?.copyWith(
             color: AppColors.primaryColor,
             fontWeight: FontWeight.w700,

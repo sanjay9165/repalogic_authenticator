@@ -67,7 +67,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
             const SizedBox(height: 32),
 
             Text(
-              'Authenticator',
+              AppConstants.appName,
               style: Theme.of(context).textTheme.displayLarge?.copyWith(
                 color: AppColors.primaryColor,
                 fontWeight: FontWeight.bold,
@@ -76,7 +76,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
             const SizedBox(height: 8),
 
             Text(
-              'Secure Authentication',
+              AppConstants.appTagline,
               style: Theme.of(
                 context,
               ).textTheme.titleMedium?.copyWith(color: AppColors.lightGray),

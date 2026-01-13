@@ -12,6 +12,7 @@ export 'package:repalogic_authenticator/utilities/app_fonts.dart';
 export 'package:repalogic_authenticator/utilities/app_icons.dart';
 export 'package:repalogic_authenticator/utilities/app_theme.dart';
 export 'package:repalogic_authenticator/utilities/app_colors.dart';
+export 'package:repalogic_authenticator/utilities/app_constants.dart';
 export 'package:repalogic_authenticator/widgets/custom_button.dart';
 export 'package:repalogic_authenticator/services/hive_service.dart';
 export 'package:repalogic_authenticator/utilities/app_extension.dart';

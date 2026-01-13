@@ -69,7 +69,7 @@ class AuthController extends StateNotifier<AuthState> {
       } else {
         state = state.copyWith(
           isLoading: false,
-          error: 'Invalid email or password',
+          error: AppConstants.invalidCredentialsError,
           isAuthenticated: false,
         );
         return false;
@@ -105,7 +105,10 @@ class AuthController extends StateNotifier<AuthState> {
         state = state.copyWith(isLoading: false, error: null);
         return true;
       } else {
-        state = state.copyWith(isLoading: false, error: 'Email already exists');
+        state = state.copyWith(
+          isLoading: false,
+          error: AppConstants.emailExistsError,
+        );
         return false;
       }
     } catch (e) {

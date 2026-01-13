@@ -8,14 +8,14 @@ class RegisterFooter extends StatelessWidget {
     return Center(
       child: RichText(
         text: TextSpan(
-          text: "Already have an account? ",
+          text: AppConstants.alreadyHaveAccountText,
           style: context.textTheme.bodyMedium?.copyWith(color: AppColors.black),
           children: [
             WidgetSpan(
               child: GestureDetector(
                 onTap: () => context.pop(),
                 child: Text(
-                  'LOGIN',
+                  AppConstants.loginButton,
                   style: context.textTheme.bodyMedium?.copyWith(
                     color: AppColors.primaryColor,
                     fontWeight: FontWeight.w600,

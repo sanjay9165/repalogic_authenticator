@@ -35,7 +35,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
 
       if (success && mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Registration successful! Please login.')),
+          SnackBar(content: Text(AppConstants.registrationSuccessMessage)),
         );
         // Navigate back to login screen
         Navigator.of(context).pop();
@@ -43,7 +43,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
         final error = ref.read(authControllerProvider).error;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(error ?? 'Registration failed'),
+            content: Text(error ?? AppConstants.registrationFailedMessage),
             backgroundColor: Colors.red,
           ),
         );
@@ -69,13 +69,13 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                   children: [
                     RegisterHeader(),
                     CustomTextField(
-                      label: 'Full Name',
-                      hintText: 'Full Name',
+                      label: AppConstants.fullNameLabel,
+                      hintText: AppConstants.fullNameHint,
                       controller: _nameController,
                       keyboardType: TextInputType.name,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your name';
+                          return AppConstants.nameEmptyError;
                         }
 
                         return null;
@@ -83,54 +83,54 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                     ),
                     SizedBox(height: 24),
                     CustomTextField(
-                      label: 'Phone Number',
-                      hintText: 'Phone Number',
+                      label: AppConstants.phoneNumberLabel,
+                      hintText: AppConstants.phoneNumberHint,
                       controller: _phoneController,
                       keyboardType: TextInputType.phone,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your phone number';
+                          return AppConstants.phoneEmptyError;
                         }
                         if (!value.isValidPhone) {
-                          return 'Please enter a valid phone number';
+                          return AppConstants.phoneInvalidError;
                         }
                         return null;
                       },
                     ),
                     SizedBox(height: 24),
                     CustomTextField(
-                      label: 'Email Address',
-                      hintText: 'Email Address',
+                      label: AppConstants.emailLabel,
+                      hintText: AppConstants.emailHint,
                       controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your email';
+                          return AppConstants.emailEmptyError;
                         }
                         if (!value.emailValidation) {
-                          return 'Please enter a valid email';
+                          return AppConstants.emailInvalidError;
                         }
                         return null;
                       },
                     ),
                     SizedBox(height: 24),
                     CustomTextField(
-                      label: 'Password',
-                      hintText: 'Password',
+                      label: AppConstants.passwordLabel,
+                      hintText: AppConstants.passwordHint,
                       controller: _passwordController,
                       obscureText: true,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your password';
+                          return AppConstants.passwordEmptyError;
                         }
 
                         if (value.length < 8) {
-                          return 'Password must be at least 8 characters long';
+                          return AppConstants.passwordLengthError;
                         }
 
                         if (value.length >= 8 && !value.isValidPassword) {
-                          return "Please enter strong password";
+                          return AppConstants.passwordStrengthError;
                         }
 
                         return null;
@@ -138,7 +138,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                     ),
                     SizedBox(height: 24),
                     CustomButton(
-                      text: 'SIGN UP',
+                      text: AppConstants.signUpButton,
                       onPressed: authState.isLoading ? null : _handleSignUp,
                     ),
                     if (authState.isLoading)
@@ -148,6 +148,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       ),
                     SizedBox(height: 24),
                     RegisterFooter(),
+                    SizedBox(height: 24),
                   ],
                 ),
               ),
