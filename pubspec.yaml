@@ -1,0 +1,77 @@
+name: repalogic_authenticator
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  shared_preferences: ^2.2.2
+  path_provider: ^2.1.1
+  flutter_riverpod: ^2.6.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/to/resolution-aware-images
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/to/asset-from-package
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+fonts:
+    - family: Ulagadi Sans
+      fonts:
+        - asset: assets/fonts/UlagadiSansRegular.ttf
+          weight: 400
+        - asset: assets/fonts/UlagadiSansMedium.ttf
+          weight: 500
+        - asset: assets/fonts/UlagadiSansBold.ttf
+          weight: 600
+        - asset: assets/fonts/UlagadiSansLight.ttf
+          weight: 300
+        - asset: assets/fonts/UlagadiSansExtraBold.ttf
+          weight: 700
+    - family: Bell MT
+      fonts:
+        - asset: assets/fonts/bell-mt.ttf
+          weight: 400
+    - family: Perpetua Titling MT
+      fonts:
+        - asset: assets/fonts/PERTILI.TTF
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/to/font-from-package
